@@ -6,5 +6,5 @@ export interface IAuthUser {
 export interface IUser {
   id: number,
   email: string,
-  token: string
+  access_token: string
 }

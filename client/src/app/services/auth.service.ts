@@ -17,7 +17,7 @@ export class AuthService {
 		private readonly router: Router,
 		private readonly toastr: ToastrService
 	) {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('access_token')
     this.isAuthSig.set(!!token)
   }
 
@@ -41,7 +41,7 @@ export class AuthService {
 			.post<IUser>(`${API_URL}/auth/login`, userData)
 			.pipe(
 				tap((res: IUser) => {
-					localStorage.setItem('token', res.token)
+					localStorage.setItem('access_token', res.access_token)
           this.isAuthSig.set(true)
 				}),
         catchError(err => {
@@ -56,7 +56,7 @@ export class AuthService {
 	}
 
   logout() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('access_token')
     this.isAuthSig.set(false)
     this.toastr.success('Logged out successfully')
     this.router.navigate(['/login'])
