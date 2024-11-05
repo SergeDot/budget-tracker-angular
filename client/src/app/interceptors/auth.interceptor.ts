@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 	intercept(req: HttpRequest<any>, next: HttpHandler) {
 		console.log(`12aaa`)
-		const token = localStorage.getItem('token')
+		const token = localStorage.getItem('access_token')
 		if (token) {
 			req = req.clone({
 				setHeaders: {

@@ -1,1 +1,1 @@
-export const API_URL='http://localhost:3001/api'
+export const API_URL='https://backapp-dhfngacba4gna8de.eastus-01.azurewebsites.net/api'
